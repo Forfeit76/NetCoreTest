@@ -37,7 +37,7 @@ namespace CoreTest
         [Test]
         public void TestMethodFierfox()
         {
-            driver = new FirefoxDriver();
+            driver = new FirefoxDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             driver.Url = "https://ya.ru/";
             var search = driver.FindElement(By.Id("text"));
             search.Click();
@@ -62,6 +62,7 @@ namespace CoreTest
             Assert.That(driver.Title.ToString(), Does.Contain("Gomel"), "Title not contain Gomel");
         }
 
+        [Ignore("not implemented")]
         [Test]
         public void TestMethodInternetExplorer()
         {
